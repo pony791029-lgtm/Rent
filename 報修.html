@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IT報修表單 - 品嘉建設集團</title>
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --accent-color: #3498db;
+            --bg-color: #f4f7f6;
+            --card-bg: #ffffff;
+            --border-color: #dcdfe6;
+            --text-color: #333333;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans TC", sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            background-color: var(--card-bg);
+            width: 100%;
+            max-width: 600px;
+            border-radius: 12px;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+            overflow: hidden;
+        }
+
+        .header {
+            background-color: var(--primary-color);
+            color: #ffffff;
+            padding: 25px 30px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            font-weight: 600;
+            letter-spacing: 1px;
+        }
+
+        .header p {
+            font-size: 14px;
+            color: #bdc3c7;
+            margin-top: 6px;
+        }
+
+        .form-body {
+            padding: 30px;
+        }
+
+        .form-group {
+            margin-bottom: 22px;
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: #2c3e50;
+            font-size: 15px;
+        }
+
+        .form-group label span.required {
+            color: #e74c3c;
+            margin-left: 3px;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 12px 14px;
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            font-size: 15px;
+            color: var(--text-color);
+            background-color: #fff;
+            transition: border-color 0.2s, box-shadow 0.2s;
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--accent-color);
+            box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.15);
+        }
+
+        textarea.form-control {
+            resize: vertical;
+            min-height: 110px;
+        }
+
+        .btn-submit {
+            width: 100%;
+            background-color: var(--accent-color);
+            color: #ffffff;
+            border: none;
+            padding: 14px;
+            font-size: 16px;
+            font-weight: 600;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background-color 0.2s, transform 0.1s;
+        }
+
+        .btn-submit:hover {
+            background-color: #2980b9;
+        }
+
+        .btn-submit:active {
+            transform: scale(0.99);
+        }
+
+        .success-message {
+            display: none;
+            background-color: #d4edda;
+            color: #155724;
+            padding: 15px;
+            border-radius: 6px;
+            margin-top: 20px;
+            text-align: center;
+            border: 1px solid #c3e6cb;
+        }
+
+        @media (max-width: 480px) {
+            .form-body {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="header">
+        <h1>IT報修表單</h1>
+        <p>品嘉建設集團 資訊服務支援</p>
+    </div>
+
+    <form action="https://formsubmit.co/pony791029@gmail.com" method="POST" class="form-body">
+    <!-- 1. 設定收件主旨 -->
+    <input type="hidden" name="_subject" value="【IT報修通知】收到新的線上報修單">
+    
+    <!-- 2. 防垃圾郵件 & 送出後不跳轉外頁 -->
+    <input type="hidden" name="_captcha" value="false">
+    <input type="hidden" name="_template" value="table">
+        
+        <!-- 第一欄位：報修單位與對應人員 -->
+        <div class="form-group">
+            <label for="department">1. 報修單位<span class="required">*</span></label>
+            <select id="department" name="department" class="form-control" required onchange="updatePersonOptions()">
+                <option value="" disabled selected>-- 請選擇報修單位 --</option>
+                <option value="董事長室">董事長室</option>
+                <option value="品嘉營造">品嘉營造</option>
+                <option value="總經理室">總經理室</option>
+                <option value="財會部">財會部</option>
+                <option value="多媒體行銷部">多媒體行銷部</option>
+                <option value="AI 資訊部">AI 資訊部</option>
+                <option value="營銷事業部">營銷事業部</option>
+                <option value="客服與客戶關係部">客服與客戶關係部</option>
+                <option value="管理與事業發展部">管理與事業發展部</option>
+                <option value="都市更新開發一部">都市更新開發一部</option>
+                <option value="都市更新開發二部">都市更新開發二部</option>
+                <option value="都市更新開發三部">都市更新開發三部</option>
+                <option value="都市更新開發四部">都市更新開發四部</option>
+                <option value="創新研發部">創新研發部</option>
+                <option value="專案一組">專案一組</option>
+                <option value="專案二組">專案二組</option>
+                <option value="專案三組">專案三組</option>
+                <option value="工程顧問部">工程顧問部</option>
+                <option value="都更計畫部">都更計畫部</option>
+                <option value="採購部">採購部</option>
+                <option value="工程事業部">工程事業部</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="person">報修人員姓名<span class="required">*</span></label>
+            <select id="person" name="person" class="form-control" required disabled>
+                <option value="" disabled selected>-- 請先選擇報修單位 --</option>
+            </select>
+        </div>
+
+        <!-- 第二欄位：報修項目 -->
+        <div class="form-group">
+            <label for="category">2. 報修項目<span class="required">*</span></label>
+            <select id="category" name="category" class="form-control" required>
+                <option value="" disabled selected>-- 請選擇報修項目 --</option>
+                <option value="1.列印相關">1.列印相關</option>
+                <option value="2.M365相關">2.M365相關</option>
+                <option value="3.電腦硬體相關">3.電腦硬體相關</option>
+                <option value="4.網路相關">4.網路相關</option>
+            </select>
+        </div>
+
+        <!-- 第三欄位：問題簡易敘述 -->
+        <div class="form-group">
+            <label for="description">3. 問題簡易敘述<span class="required">*</span></label>
+            <textarea id="description" name="description" class="form-control" placeholder="請詳細說明您碰到的問題狀況（例如：印表機無法連線、M365密碼錯誤、電腦無法開機等）..." required></textarea>
+        </div>
+
+        <button type="submit" class="btn-submit">送出報修單</button>
+
+        <div id="successMsg" class="success-message">
+            ✓ 報修單已成功送出！IT人員將盡快為您處理。
+        </div>
+
+    </form>
+</div>
+
+<script>
+    // 單位與人員對應資料 (來自人員清冊)
+    const deptData = {
+        "董事長室": ["胡偉良", "徐秀蘭", "張殿文", "邱聖雯", "黃馨慧", "陳人豪", "楊薇蓉", "陳其偉"],
+        "品嘉營造": ["高駿杰", "林筱淇", "王明水", "張裕錦", "林崇逸"],
+        "總經理室": ["蕭溏寓", "林士傑", "蘇科", "廖美玲"],
+        "財會部": ["姚慈慧", "陳岳彤"],
+        "多媒體行銷部": ["張紘瑋", "洪易", "陳皇賓", "趙怡如", "吳淳仁"],
+        "AI 資訊部": ["劉馨豪", "齊軒", "常逸"],
+        "營銷事業部": ["趙宥迪", "吳忠逸"],
+        "客服與客戶關係部": ["孫浩庭", "沈怡汝", "丁元鴻", "陳姿燕"],
+        "管理與事業發展部": ["林佩榛", "黃雅", "温尚帛", "張智傑"],
+        "都市更新開發一部": ["周維理", "邱偉銘", "劉家成", "邱奕柏"],
+        "都市更新開發二部": ["賴仲翊", "姜則安", "李佳家", "賴胤孝", "鄭乃琇", "陳洪名", "周思廷"],
+        "都市更新開發三部": ["林嫻芝", "袁明琪"],
+        "都市更新開發四部": ["蘇惠秋", "廖秋香", "謝亞哲", "許瑞琪", "陳建銘"],
+        "創新研發部": ["蘇智裕", "武匯文", "藍翊萍"],
+        "專案一組": ["陳少灃", "洪聖惠", "楊長鳴", "陳明慧"],
+        "專案二組": ["陳大慶", "吳世團"],
+        "專案三組": ["許孟婷", "彭詮恩", "尤煜傑"],
+        "工程顧問部": ["張德健", "溫燕晴"],
+        "都更計畫部": ["劉筱蕾", "譚聿甯", "江艾霖", "江婉瑜"],
+        "採購部": ["邱淑瑛", "朱妍蓁"],
+        "工程事業部": ["王靖夫", "蔡坤原", "白尚穎", "余哲豪", "謝旻吟", "林碧莞", "劉緯鴻", "盧奕辰", "李竑珉", "李安儒", "潘天玥", "黃芊樺", "張森然", "陳德禪", "林鼎晉", "蔡佳融", "曾翊銘", "李承", "林俐", "黃嘉涵", "陳雅茹"]
+    };
+
+    function updatePersonOptions() {
+        const deptSelect = document.getElementById("department");
+        const personSelect = document.getElementById("person");
+        const selectedDept = deptSelect.value;
+
+        // 清空人員下拉選單
+        personSelect.innerHTML = "";
+
+        if (selectedDept && deptData[selectedDept]) {
+            personSelect.disabled = false;
+            
+            // 預設提示選項
+            const defaultOption = document.createElement("option");
+            defaultOption.value = "";
+            defaultOption.textContent = "-- 請選擇報修人員 --";
+            defaultOption.disabled = true;
+            defaultOption.selected = true;
+            personSelect.appendChild(defaultOption);
+
+            // 帶入該單位對應的人員名字
+            deptData[selectedDept].forEach(name => {
+                const opt = document.createElement("option");
+                opt.value = name;
+                opt.textContent = name;
+                personSelect.appendChild(opt);
+            });
+        } else {
+            personSelect.disabled = true;
+            const defaultOption = document.createElement("option");
+            defaultOption.value = "";
+            defaultOption.textContent = "-- 請先選擇報修單位 --";
+            defaultOption.disabled = true;
+            defaultOption.selected = true;
+            personSelect.appendChild(defaultOption);
+        }
+    }
+
+    // 模擬表單送出
+    document.getElementById("repairForm").addEventListener("submit", function(e) {
+        e.preventDefault();
+        const successMsg = document.getElementById("successMsg");
+        successMsg.style.display = "block";
+        setTimeout(() => {
+            this.reset();
+            document.getElementById("person").disabled = true;
+            document.getElementById("person").innerHTML = '<option value="" disabled selected>-- 請先選擇報修單位 --</option>';
+            successMsg.style.display = "none";
+        }, 3000);
+    });
+</script>
+
+</body>
+</html>
